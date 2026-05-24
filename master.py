@@ -7,10 +7,10 @@ import concurrent.futures
 # ============================================================
 NODES = [
     # Render nodes (4)
-    "https://your-render-node-1.onrender.com",
-    "https://your-render-node-2.onrender.com",
-    "https://your-render-node-3.onrender.com",
-    "https://your-render-node-4.onrender.com",
+    "https://grid-nodes.onrender.com",
+    "https://grid-nodes2.onrender.com",
+    "https://grid-nodes3.onrender.com",
+    "https://grid-nodes4.onrender.com",
     # Vercel nodes (4)
     "https://your-vercel-node-1.vercel.app",
     "https://your-vercel-node-2.vercel.app",
