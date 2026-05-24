@@ -1,0 +1,10 @@
+version: '3'
+services:
+  grid-node:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_NAME=grid-node-local
+      - PORT=8080
+    restart: always
