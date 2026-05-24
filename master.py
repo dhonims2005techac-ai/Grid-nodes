@@ -1,0 +1,102 @@
+import requests
+import json
+import concurrent.futures
+
+# ============================================================
+# ADD YOUR 12 NODE URLs HERE AFTER DEPLOYING ON EACH PLATFORM
+# ============================================================
+NODES = [
+    # Render nodes (4)
+    "https://your-render-node-1.onrender.com",
+    "https://your-render-node-2.onrender.com",
+    "https://your-render-node-3.onrender.com",
+    "https://your-render-node-4.onrender.com",
+    # Vercel nodes (4)
+    "https://your-vercel-node-1.vercel.app",
+    "https://your-vercel-node-2.vercel.app",
+    "https://your-vercel-node-3.vercel.app",
+    "https://your-vercel-node-4.vercel.app",
+    # Hugging Face nodes (4)
+    "https://your-hf-node-1.hf.space",
+    "https://your-hf-node-2.hf.space",
+    "https://your-hf-node-3.hf.space",
+    "https://your-hf-node-4.hf.space",
+]
+
+def check_node(url):
+    """Check if a node is online"""
+    try:
+        response = requests.get(f"{url}/health", timeout=10)
+        if response.status_code == 200:
+            print(f"✅ Node ONLINE: {url}")
+            return True
+        else:
+            print(f"❌ Node OFFLINE: {url}")
+            return False
+    except Exception as e:
+        print(f"❌ Node OFFLINE: {url} - {str(e)}")
+        return False
+
+def send_task(node_url, task, values):
+    """Send a computation task to a node"""
+    try:
+        payload = {"task": task, "values": values}
+        response = requests.post(f"{node_url}/compute", json=payload, timeout=30)
+        return response.json()
+    except Exception as e:
+        return {"status": "failed", "error": str(e), "node": node_url}
+
+def distribute_task(task, data_chunks):
+    """Distribute work across all online nodes"""
+    online_nodes = [n for n in NODES if check_node(n)]
+    
+    if not online_nodes:
+        print("No nodes available!")
+        return []
+
+    print(f"\n🚀 Distributing task '{task}' across {len(online_nodes)} nodes...")
+    
+    results = []
+    with concurrent.futures.ThreadPoolExecutor(max_workers=len(online_nodes)) as executor:
+        futures = {
+            executor.submit(send_task, node, task, chunk): node
+            for node, chunk in zip(online_nodes, data_chunks)
+        }
+        for future in concurrent.futures.as_completed(futures):
+            result = future.result()
+            results.append(result)
+            print(f"Result from node: {result}")
+    
+    return results
+
+def check_all_nodes():
+    """Check status of all nodes"""
+    print("\n🔍 Checking all nodes...\n")
+    online = 0
+    for node in NODES:
+        if check_node(node):
+            online += 1
+    print(f"\n📊 Total: {online}/{len(NODES)} nodes online")
+
+if __name__ == '__main__':
+    print("=" * 50)
+    print("   GRID COMPUTING MASTER CONTROLLER")
+    print("=" * 50)
+    
+    # Step 1: Check all nodes
+    check_all_nodes()
+    
+    # Step 2: Example - distribute a sum task across nodes
+    print("\n📤 Sending test computation to grid...")
+    data_chunks = [
+        [1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 10],
+        [11, 12, 13, 14, 15],
+        [16, 17, 18, 19, 20],
+    ]
+    
+    results = distribute_task("sum", data_chunks)
+    
+    print("\n✅ All results collected:")
+    for r in results:
+        print(r)
