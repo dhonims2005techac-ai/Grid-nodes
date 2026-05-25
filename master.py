@@ -12,7 +12,7 @@ NODES = [
     "https://grid-nodes3.onrender.com",
     "https://grid-nodes4.onrender.com",
     # Vercel nodes (4)
-    "https://your-vercel-node-1.vercel.app",
+    "https://grid-nodesv2-81f0nythy-done-s-projects1.vercel.app/",
     "https://your-vercel-node-2.vercel.app",
     "https://your-vercel-node-3.vercel.app",
     "https://your-vercel-node-4.vercel.app",
