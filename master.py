@@ -17,7 +17,7 @@ NODES = [
     "https://your-vercel-node-3.vercel.app",
     "https://your-vercel-node-4.vercel.app",
     # Hugging Face nodes (4)
-    "https://your-hf-node-1.hf.space",
+    "https://bug-spy1-grid222.hf.space",
     "https://your-hf-node-2.hf.space",
     "https://your-hf-node-3.hf.space",
     "https://your-hf-node-4.hf.space",
