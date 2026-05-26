@@ -20,7 +20,7 @@ NODES = [
     "https://bug-spy1-grid222.hf.space",
     "https://dhoni22-girdtest.hf.space",
     "https://done1237-gridc.hf.space",
-    "https://your-hf-node-4.hf.space",
+    "https://dhonims-grid333.hf.space",
 ]
 
 def check_node(url):
