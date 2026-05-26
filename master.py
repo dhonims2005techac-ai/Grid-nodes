@@ -14,8 +14,12 @@ NODES = [
     # Vercel nodes (4)
     "https://grid-nodesv2.onrender.com",
     "https://grid-nodesv2-1.onrender.com",
-    "https://your-vercel-node-3.vercel.app",
-    "https://your-vercel-node-4.vercel.app",
+    "https://grid-nodesr2-7.onrender.com",
+"https://grid-nodesr8.onrender.com",
+"https://grid-nodes9.onrender.com",
+"https://grid-nodes10.onrender.com",
+"https://grid-nodes11.onrender.com",
+"https://grid-nodes12.onrender.com",
     # Hugging Face nodes (4)
     "https://bug-spy1-grid222.hf.space",
     "https://dhoni22-girdtest.hf.space",
