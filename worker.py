@@ -19,6 +19,13 @@ def health():
 
 @app.route('/compute', methods=['POST'])
 def compute():
+    provided_key = request.headers.get("X-API-KEY")
+
+    if provided_key != API_KEY:
+        return jsonify({
+            "status": "unauthorized",
+            "message": "Invalid API Key"
+        }), 401
     data = request.json
     task = data.get('task', '')
     values = data.get('values', [])
