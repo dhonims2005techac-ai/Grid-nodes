@@ -56,18 +56,18 @@ def send_task(node_url, task, values):
     try:
         payload = {"task": task, "values": values}
 
-    headers = {
-        "X-API-KEY": API_KEY
-    }
+        headers = {
+            "X-API-KEY": API_KEY
+        }
 
-    response = requests.post(
-        f"{node_url}/compute",
-        json=payload,
-        headers=headers,
-        timeout=30
-    )
+        response = requests.post(
+            f"{node_url}/compute",
+            json=payload,
+            headers=headers,
+            timeout=30
+        )
 
-    return response.json()
+        return response.json()
     except Exception as e:
         return {"status": "failed", "error": str(e), "node": node_url}
 
