@@ -90,7 +90,7 @@ def distribute_task(task, data_chunks):
         for future in concurrent.futures.as_completed(futures):
             result = future.result()
             results.append(result)
-            print(f"Result from node: {result}")
+            print(f"Result from node {futures[future]}: {result}")
     
     return results
 
