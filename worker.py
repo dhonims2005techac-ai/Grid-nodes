@@ -3,6 +3,7 @@ import time
 import os
 
 app = Flask(__name__)
+API_KEY = os.environ.get("GRID_API_KEY")
 
 @app.route('/')
 def home():
