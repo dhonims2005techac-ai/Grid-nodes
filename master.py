@@ -54,7 +54,7 @@ def check_node(url):
 def send_task(node_url, task, values):
     """Send a computation task to a node"""
     try:
-    payload = {"task": task, "values": values}
+        payload = {"task": task, "values": values}
 
     headers = {
         "X-API-KEY": API_KEY
