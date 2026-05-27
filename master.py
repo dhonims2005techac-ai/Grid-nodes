@@ -1,6 +1,8 @@
 import requests
 import json
 import concurrent.futures
+import os
+API_KEY = os.environ.get("GRID_API_KEY")
 
 # ============================================================
 # ADD YOUR 12 NODE URLs HERE AFTER DEPLOYING ON EACH PLATFORM
