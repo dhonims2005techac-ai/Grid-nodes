@@ -25,6 +25,14 @@ NODES = [
     "https://dhoni22-girdtest.hf.space",
     "https://done1237-gridc.hf.space",
     "https://dhonims-grid333.hf.space",
+    "https://bug-spy1-gridnodehf5.hf.space",
+"https://bug-spy1-gridnodehf6.hf.space",
+"https://dhoni22-gridnodehf7.hf.space",
+"https://dhoni22-gridnodehf8.hf.space",
+"https://done1237-gridnodehf9.hf.space",
+"https://done1237-gridnodehf10.hf.space",
+"https://dhonims-gridnodehf11.hf.space",
+"https://dhonims-grid12.hf.space",
 ]
 
 def check_node(url):
