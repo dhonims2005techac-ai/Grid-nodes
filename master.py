@@ -54,9 +54,20 @@ def check_node(url):
 def send_task(node_url, task, values):
     """Send a computation task to a node"""
     try:
-        payload = {"task": task, "values": values}
-        response = requests.post(f"{node_url}/compute", json=payload, timeout=30)
-        return response.json()
+    payload = {"task": task, "values": values}
+
+    headers = {
+        "X-API-KEY": API_KEY
+    }
+
+    response = requests.post(
+        f"{node_url}/compute",
+        json=payload,
+        headers=headers,
+        timeout=30
+    )
+
+    return response.json()
     except Exception as e:
         return {"status": "failed", "error": str(e), "node": node_url}
 
