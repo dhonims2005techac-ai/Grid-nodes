@@ -114,14 +114,10 @@ if __name__ == '__main__':
     # Step 2: Example - distribute a sum task across nodes
     print("\n📤 Sending test computation to grid...")
     data_chunks = [
-    list(range(1, 1000)),
-    list(range(1000, 2000)),
-    list(range(2000, 3000)),
-    list(range(3000, 4000)),
-    list(range(4000, 5000)),
-    list(range(5000, 6000)),
-    list(range(6000, 7000)),
-    list(range(7000, 8000)),
+    [1], [2], [3], [4], [5], [6],
+    [7], [8], [9], [10], [11], [12],
+    [13], [14], [15], [16], [17], [18],
+    [19], [20], [21], [22], [23], [24]
     ]
     
     results = distribute_task("sum", data_chunks)
