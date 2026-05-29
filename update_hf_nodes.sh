@@ -26,6 +26,7 @@ update_space() {
 cp $MASTER_FILE $TEMP_DIR/master.py
     
     cd $TEMP_DIR
+git remote set-url origin https://$USERNAME:$TOKEN@huggingface.co/spaces/$SPACE
     
     git add worker.py master.py
     git commit -m "Update worker.py and master.py" || true
@@ -40,14 +41,21 @@ cp $MASTER_FILE $TEMP_DIR/master.py
 update_space "Bug-spy1/Grid222" "$BUG_TOKEN"
 update_space "Bug-spy1/GridnodeHF5" "$BUG_TOKEN"
 
-update_space "dhoni22/gridtest" "$DHONI22_TOKEN"
+update_space "dhoni22/GridnodeHF8" "$DHONI22_TOKEN"
 update_space "dhoni22/gridnodeHF7" "$DHONI22_TOKEN"
 
-update_space "done1237/Grid6" "$DONE_TOKEN"
+update_space "Bug-spy1/GridnodeHF6" "$BUG_TOKEN"
 update_space "done1237/gridnodeHF9" "$DONE_TOKEN"
 
 update_space "dhonims/Grid333" "$DHONIMS_TOKEN"
 update_space "dhonims/gridnodehf11" "$DHONIMS_TOKEN"
+
+update_space "dhoni22/girdtest" "$DHONI22_TOKEN"
+update_space "done1237/Gridc" "$DONE_TOKEN"
+
+update_space "done1237/GridnodeHF10" "$DONE_TOKEN"
+
+update_space "dhonims/Grid12" "$DHONIMS_TOKEN"
 
 echo ""
 echo "========================================="
