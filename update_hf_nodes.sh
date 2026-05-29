@@ -7,6 +7,7 @@ echo "========================================="
 WORKER_FILE=~/Grid-nodes/Grid-nodes/worker.py
 MASTER_FILE=~/Grid-nodes/Grid-nodes/master.py
 
+
 # Configure git credentials
 git config --global credential.helper store
 
@@ -24,11 +25,20 @@ update_space() {
     
     cp $WORKER_FILE $TEMP_DIR/worker.py
 cp $MASTER_FILE $TEMP_DIR/master.py
+cp ~/Grid-nodes/Grid-nodes/node_manager.py $TEMP_DIR/node_manager.py
+cp ~/Grid-nodes/Grid-nodes/scheduler.py $TEMP_DIR/scheduler.py
+cp ~/Grid-nodes/Grid-nodes/database.py $TEMP_DIR/database.py
+cp ~/Grid-nodes/Grid-nodes/analytics.py $TEMP_DIR/analytics.py
+cp ~/Grid-nodes/Grid-nodes/job_queue.py $TEMP_DIR/job_queue.py
+cp ~/Grid-nodes/Grid-nodes/benchmark.py $TEMP_DIR/benchmark.py
     
     cd $TEMP_DIR
 git remote set-url origin https://$USERNAME:$TOKEN@huggingface.co/spaces/$SPACE
     
-    git add worker.py master.py
+    git add worker.py master.py \
+node_manager.py scheduler.py \
+database.py analytics.py \
+job_queue.py benchmark.py
     git commit -m "Update worker.py and master.py" || true
     git push
     
